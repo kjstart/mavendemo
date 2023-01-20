@@ -1,7 +1,7 @@
 FROM openjdk:11
 
 VOLUME /tmp
-ADD MavenDemo*.jar app.jar
+ADD maven-demo*.jar app.jar
 RUN sh -c 'touch /app.jar'
 ENV JAVA_OPTS=""
 EXPOSE 9090
