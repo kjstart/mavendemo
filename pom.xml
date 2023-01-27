@@ -15,6 +15,8 @@
     <description>maven-demo</description>
     <properties>
         <java.version>11</java.version>
+        <docker.host>192.168.1.160:32710</docker.host>
+        <docker.tag>2</docker.tag>
     </properties>
     <dependencies>
         <dependency>
@@ -41,14 +43,19 @@
                 <version>1.2.2</version>
                 <configuration>
                     <serverId>docker-vm</serverId>
-                    <registryUrl>http://192.168.1.160:32710</registryUrl>
-                    <imageName>192.168.1.160:32710/${project.artifactId}</imageName>
+                    <registryUrl>http://${docker.host}</registryUrl>
+                    <imageName>${docker.host}/${project.artifactId}:${docker.tag}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}.jar</include>
+                        </resource>
+                        <resource>
+                            <targetPath>/fonts</targetPath>
+                            <directory>${project.basedir}/src/fonts</directory>
+                            <include>*.*</include>
                         </resource>
                     </resources>
                 </configuration>
