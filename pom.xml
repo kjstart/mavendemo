@@ -15,7 +15,7 @@
     <description>maven-demo</description>
     <properties>
         <java.version>11</java.version>
-        <docker.host>192.168.1.160:32710</docker.host>
+        <docker.host>node1.test.com:5000</docker.host>
         <docker.tag>2</docker.tag>
     </properties>
     <dependencies>
